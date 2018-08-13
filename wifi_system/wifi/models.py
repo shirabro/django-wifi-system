@@ -8,14 +8,10 @@ class NetworkModel(models.Model):
     """
     id = models.CharField(primary_key=True, max_length=500)
     auth = models.CharField(max_length=6)
-    # avg_throughput = models.IntegerField(default=0)
     objects = models.Manager()
 
     def get_id(self):
         return self.id
-
-    def __repr__(self):
-        return self.id + ' is added.'
 
 
 class Devices(models.Model):

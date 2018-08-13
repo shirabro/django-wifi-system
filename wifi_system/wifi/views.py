@@ -4,11 +4,11 @@ from rest_framework import status
 from .models import NetworkModel, Devices, Avg
 from .serializers import NetworkModelSerializer, DevicesSerializer, AvgSerializer
 
+
 # This function return Json object of Wifi Network
 @api_view(['GET'])
 def fetch_network_by_id(request, id):
     if request.method == 'GET':
-        # id_from_url = request.__getattribute__("query_params")["id"]
         networks = NetworkModel.objects.filter(id=id)
         devices = Devices.objects.filter(network_id=id)
         serializer_network = NetworkModelSerializer(networks, many=True)
